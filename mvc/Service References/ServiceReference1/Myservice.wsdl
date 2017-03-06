@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Myservice" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:58199/Myservice.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:58199/Myservice.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:58199/Myservice.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/wcf" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMyservice_GetAllEmployers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployers" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_GetAllEmployers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmployersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_GetAllMarketers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMarketers" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_GetAllMarketers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMarketersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_AddEmp_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmp" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_AddEmp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_AddMark_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMark" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_AddMark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_GetAllemployerByid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllemployerByid" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_GetAllemployerByid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllemployerByidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_GetAllMarketerByid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMarketerByid" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_GetAllMarketerByid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMarketerByidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_UpdateEmp_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmp" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_UpdateEmp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_UpdateMark_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMark" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_UpdateMark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_DeleteEmpByid_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmpByid" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_DeleteEmpByid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmpByidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_DeleteMarkByEid_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMarkByEid" />
+  </wsdl:message>
+  <wsdl:message name="IMyservice_DeleteMarkByEid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMarkByEidResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMyservice">
+    <wsdl:operation name="GetAllEmployers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/GetAllEmployers" message="tns:IMyservice_GetAllEmployers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/GetAllEmployersResponse" message="tns:IMyservice_GetAllEmployers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMarketers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/GetAllMarketers" message="tns:IMyservice_GetAllMarketers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/GetAllMarketersResponse" message="tns:IMyservice_GetAllMarketers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/AddEmp" message="tns:IMyservice_AddEmp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/AddEmpResponse" message="tns:IMyservice_AddEmp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/AddMark" message="tns:IMyservice_AddMark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/AddMarkResponse" message="tns:IMyservice_AddMark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllemployerByid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/GetAllemployerByid" message="tns:IMyservice_GetAllemployerByid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/GetAllemployerByidResponse" message="tns:IMyservice_GetAllemployerByid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMarketerByid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/GetAllMarketerByid" message="tns:IMyservice_GetAllMarketerByid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/GetAllMarketerByidResponse" message="tns:IMyservice_GetAllMarketerByid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/UpdateEmp" message="tns:IMyservice_UpdateEmp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/UpdateEmpResponse" message="tns:IMyservice_UpdateEmp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/UpdateMark" message="tns:IMyservice_UpdateMark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/UpdateMarkResponse" message="tns:IMyservice_UpdateMark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmpByid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/DeleteEmpByid" message="tns:IMyservice_DeleteEmpByid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/DeleteEmpByidResponse" message="tns:IMyservice_DeleteEmpByid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMarkByEid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyservice/DeleteMarkByEid" message="tns:IMyservice_DeleteMarkByEid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyservice/DeleteMarkByEidResponse" message="tns:IMyservice_DeleteMarkByEid_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMyservice" type="tns:IMyservice">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllEmployers">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/GetAllEmployers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMarketers">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/GetAllMarketers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmp">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/AddEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMark">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/AddMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllemployerByid">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/GetAllemployerByid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMarketerByid">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/GetAllMarketerByid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmp">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/UpdateEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMark">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/UpdateMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmpByid">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/DeleteEmpByid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMarkByEid">
+      <soap:operation soapAction="http://tempuri.org/IMyservice/DeleteMarkByEid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Myservice">
+    <wsdl:port name="BasicHttpBinding_IMyservice" binding="tns:BasicHttpBinding_IMyservice">
+      <soap:address location="http://localhost:58199/Myservice.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

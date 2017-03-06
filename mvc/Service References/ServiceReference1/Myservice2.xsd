@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:58199/Myservice.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/wcf" />
+  <xs:element name="GetAllEmployers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmployersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wcf" minOccurs="0" name="GetAllEmployersResult" nillable="true" type="q1:ArrayOfEmployer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMarketers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMarketersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcf" minOccurs="0" name="GetAllMarketersResult" nillable="true" type="q2:ArrayOfMarketing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="Fname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Lname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="instructor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="optstartdate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="technology" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isconsultant" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmpResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMark">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Eid" type="xs:int" />
+        <xs:element minOccurs="0" name="optstartdate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="mid" type="xs:int" />
+        <xs:element minOccurs="0" name="optstatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMarkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddMarkResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllemployerByid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllemployerByidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcf" minOccurs="0" name="GetAllemployerByidResult" nillable="true" type="q3:Employer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMarketerByid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Eid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMarketerByidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcf" minOccurs="0" name="GetAllMarketerByidResult" nillable="true" type="q4:Marketing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="Fname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Lname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="instructor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="optstartdate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="technology" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isconsultant" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEmpResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMark">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Eid" type="xs:int" />
+        <xs:element minOccurs="0" name="optstartdate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="mid" type="xs:int" />
+        <xs:element minOccurs="0" name="optstatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMarkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateMarkResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpByid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmpByidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteEmpByidResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMarkByEid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMarkByEidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteMarkByEidResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

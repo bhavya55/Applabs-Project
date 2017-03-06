@@ -1,0 +1,68 @@
+﻿@model mvc.Models.Marketer
+
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h2>Create</h2>
+        <div class="form-horizontal">
+            <h4>Marketing details</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Eid, "Employee Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Eid, new SelectList(Model.DE, "id", "Fname"), "Select Employee", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Eid, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.mid, "Marketer Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.mid, new SelectList(Model.DM, "id", "Fname"), "Select Employee", new { htmlAttributes = new { @class = "form-control" } })                @Html.ValidationMessageFor(model => model.mid, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.optstartdate, "Marketing Start Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.optstartdate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.optstartdate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.optstatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("optStatus",
+ new SelectList(
+     new List<Object>
+     {   new { text = "Open", value = "Open"},
+                    new { text = "Close", value = "Close"} ,
+      }, "text", "text"),
+ "Select Status", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.optstatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+}

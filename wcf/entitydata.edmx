@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="applabsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="isconsultant" Type="bit" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fname" Type="varchar" MaxLength="50" />
+          <Property Name="Lname" Type="varchar" MaxLength="50" />
+          <Property Name="optstartdate" Type="datetime" Nullable="false" />
+          <Property Name="technology" Type="varchar" MaxLength="50" />
+          <Property Name="instructor" Type="varchar" MaxLength="50" />
+          <Property Name="optstatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Marketing">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="Eid" Type="int" Nullable="false" />
+          <Property Name="optstatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="mid" Type="int" Nullable="false" />
+          <Property Name="optstartdate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Marketing_Employer">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Marketing" Type="Self.Marketing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Marketing">
+              <PropertyRef Name="Eid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="applabsModelStoreContainer">
+          <EntitySet Name="Employer" EntityType="Self.Employer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marketing" EntityType="Self.Marketing" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Marketing_Employer" Association="Self.FK_Marketing_Employer">
+            <End Role="Employer" EntitySet="Employer" />
+            <End Role="Marketing" EntitySet="Marketing" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="applabsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="applabsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employers" EntityType="applabsModel.Employer" />
+          <EntitySet Name="Marketings" EntityType="applabsModel.Marketing" />
+          <AssociationSet Name="FK_Marketing_Employer" Association="applabsModel.FK_Marketing_Employer">
+            <End Role="Employer" EntitySet="Employers" />
+            <End Role="Marketing" EntitySet="Marketings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="isconsultant" Type="Boolean" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="optstartdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="technology" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="instructor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="optstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Marketings" Relationship="applabsModel.FK_Marketing_Employer" FromRole="Employer" ToRole="Marketing" />
+        </EntityType>
+        <EntityType Name="Marketing">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="Eid" Type="Int32" Nullable="false" />
+          <Property Name="optstatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mid" Type="Int32" Nullable="false" />
+          <Property Name="optstartdate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Employer" Relationship="applabsModel.FK_Marketing_Employer" FromRole="Marketing" ToRole="Employer" />
+        </EntityType>
+        <Association Name="FK_Marketing_Employer">
+          <End Type="applabsModel.Employer" Role="Employer" Multiplicity="1" />
+          <End Type="applabsModel.Marketing" Role="Marketing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Marketing">
+              <PropertyRef Name="Eid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="applabsModelStoreContainer" CdmEntityContainer="applabsEntities">
+          <EntitySetMapping Name="Employers">
+            <EntityTypeMapping TypeName="applabsModel.Employer">
+              <MappingFragment StoreEntitySet="Employer">
+                <ScalarProperty Name="optstatus" ColumnName="optstatus" />
+                <ScalarProperty Name="instructor" ColumnName="instructor" />
+                <ScalarProperty Name="technology" ColumnName="technology" />
+                <ScalarProperty Name="optstartdate" ColumnName="optstartdate" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="isconsultant" ColumnName="isconsultant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marketings">
+            <EntityTypeMapping TypeName="applabsModel.Marketing">
+              <MappingFragment StoreEntitySet="Marketing">
+                <ScalarProperty Name="optstartdate" ColumnName="optstartdate" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="optstatus" ColumnName="optstatus" />
+                <ScalarProperty Name="Eid" ColumnName="Eid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

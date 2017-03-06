@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc26ff35a5db4693b39fb11f07fefa5b" Name="Diagram1">
+        <EntityTypeShape EntityType="applabsModel.Employer" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="applabsModel.Marketing" Width="1.5" PointX="3" PointY="1.375" />
+        <AssociationConnector Association="applabsModel.FK_Marketing_Employer" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

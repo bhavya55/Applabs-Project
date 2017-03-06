@@ -1,0 +1,51 @@
+﻿@model IEnumerable<mvc.Models.Marketer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Eid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.optstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.optstartdate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.optstatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.optstartdate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { Eid = item.Eid }) |
+            |
+            @Html.ActionLink("Delete", "Delete", new { mid = item.mid })    
+        </td>
+    </tr>
+}
+
+</table>

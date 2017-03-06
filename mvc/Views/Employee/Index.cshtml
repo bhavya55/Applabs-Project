@@ -1,0 +1,72 @@
+﻿@model IEnumerable<mvc.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.technology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.optstartdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.instructor)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.isconsultant)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.technology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.optstartdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.instructor)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.isconsultant)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
